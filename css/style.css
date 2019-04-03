@@ -1,0 +1,19 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  /* background-color: #56666B; */
+  margin: 0;
+}
+
+h1 {
+  font-family: 'Bitter', serif;
+  font-size: 1.3em;
+  margin: 2em;
+}
+
+/* SELECTED */
+.selected {
+  background-color: #7aac86;
+}
