@@ -13,7 +13,34 @@ h1 {
   margin: 2em;
 }
 
+.grid-container {
+  max-width: 95%;
+  margin: 2rem;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-auto-rows: minmax(140px, auto);
+  grid-gap: 1rem;
+
+}
+
+.card {
+  background-color: red;
+}
+
+img {
+  text-align: left;
+}
+
+
 /* SELECTED */
 .selected {
   background-color: #7aac86;
+}
+
+@media (max-width: 762px) {
+  .grid-container {
+    grid-template-columns: repeat(1, 1fr);
+  }
+
+
 }
