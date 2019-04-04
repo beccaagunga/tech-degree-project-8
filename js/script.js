@@ -1,45 +1,55 @@
 // VARIABLES //
-const directory = document.querySelector('.directory');
-const newDiv = document.createElement('div');
-const p = document.createElement('p');
-const a = document.createElement('a');
+// const directory = document.querySelector('.directory');
+// const newDiv = document.createElement('div');
+const card = document.querySelector('.card');
 
 
-document.getElementById("directory").appendChild(newDiv);
-document.getElementById("directory").appendChild(p);
+const employees = [];
+// Fetch Email //
+fetch('https://randomuser.me/api/?exc=login,nat,id,registered&results=12')
+   .then(response => response.json()) // parse //
+   .then(data => generateEmail(data.results[0].email))  // email
 
-// Card gets highlighted when user clicks on it //
-$('button').click(function () {
-  $('button').removeClass('selected');
-  $(this).addClass('selected');
-});
-
-// Create card //
-
+ function generateEmail(data) {
+    const email = `<p> ${data} </p>`;
+    card.innerHTML = email;
+   }
 
 // Fetch IMG //
-const img = fetch('https://randomuser.me/api/?=jsoncallback=?')
-  .then(response => response.json()) // parse //
-  .then(data => generateImage(data.results[0].picture.large)) // thumbnail image
+fetch('https://randomuser.me/api/?exc=login,nat,id,registered&results=12')
+     .then(response => response.json()) // parse //
+     .then(data => generateImage(data.results[0].picture.large)) // thumbnail image
 
-// Fetch Name //
-fetch('https://randomuser.me/api/?=jsoncallback=?')
-  .then(response => response.json()) // parse //
-  .then(data => generateName(data.results[0].name.title + '. ' + data.results[0].name.first + ' ' + data.results[0].name.last )) // name
+     function generateImage (data) {
+       const img = `<img src='${data}' alt="Employee 1"> </img>`;
+       card.innerHTML = img;
+     }
 
-// // Fetch Email //
-// fetch('https://randomuser.me/api/?=jsoncallback=?')
-//   .then(response => response.json()) // parse //
-//   .then(data => generateEmail(data.results[0].email)) // email
+ // Fetch Name //
+ fetch('https://randomuser.me/api/?exc=login,nat,id,registered&results=12')
+   .then(response => response.json()) // parse //
+   .then(data => generateName(data.results[0].name.title + '. ' + data.results[0].name.first + ' ' + data.results[0].name.last )) // name
+
+   function generateName (data) {
+     const name = `<p> ${data} </p>`;
+     card.innerHTML = name;
+   }
+
+
+
+
+ // let employeeCard = [];
+ //  employees.forEach(employee => {
+ //    let employeeCard = employees.filter(employee => employee === email);
+ //    console.log(employeeCard);
+ //  });
+
+
+// // Card gets highlighted when user clicks on it //
+// $('button').click(function () {
+//   $('button').removeClass('selected');
+//   $(this).addClass('selected');
+// });
+
 
 // HELPER FUNCTIONS
-
-function generateImage (data) {
-  const html = `<img src='${data}' alt="Employee 1"> </img>`;
-  newDiv.innerHTML = html;
-}
-
-function generateName (data) {
-  const html = `<p> ${data} </p>`;
-  p.innerHTML = html;
-}
