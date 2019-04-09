@@ -13,7 +13,7 @@ h1 {
   margin: 2em;
 }
 
-.user_info {
+.container {
   max-width: 95%;
   margin: 2rem;
   display: grid;
@@ -34,11 +34,14 @@ img {
 
 /* SELECTED */
 .selected {
-  background-color: #7aac86;
+  background-color: black;
 }
 
+/* MODAL */
+
+
 @media (max-width: 762px) {
-  .grid-container {
+  .container {
     grid-template-columns: repeat(1, 1fr);
   }
 
