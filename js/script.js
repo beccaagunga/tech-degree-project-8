@@ -1,48 +1,54 @@
 // VARIABLES //
 // const directory = document.querySelector('.directory');
-// const newDiv = document.createElement('div');
-const card = document.querySelector('.card');
+const container = document.querySelector('.container');
 
-
-const employees = [];
-// Fetch Email //
+// Fetches array of 12 people's info //
+let employees = [];
 fetch('https://randomuser.me/api/?exc=login,nat,id,registered&results=12')
    .then(response => response.json()) // parse //
-   .then(data => generateEmail(data.results[0].email))  // email
+   .then(data => {employees = data.results;
+                  console.log(employees)
+                })
+    .then(data => generateImage(data))
+    .then(data => generateInfo(data));
 
- function generateEmail(data) {
-    const email = `<p> ${data} </p>`;
-    card.innerHTML = email;
-   }
+        function generateInfo(data) {
+        employees.forEach((employee, index) => {
+      let infoContainer = document.createElement('div');
+          infoContainer.className = "infoContainer";
+          $(container.appendChild(infoContainer));
 
-// Fetch IMG //
-fetch('https://randomuser.me/api/?exc=login,nat,id,registered&results=12')
-     .then(response => response.json()) // parse //
-     .then(data => generateImage(data.results[0].picture.large)) // thumbnail image
+      let userInfoDiv = document.createElement('div');
+        userInfoDiv.className = "user_info";
+        $(container.appendChild(userInfoDiv));
+        const name = `${employee.name.title}.` + ' ' + `${employee.name.first}` + ' ' + `${employee.name.last }`;
+        const email = `${employee.email}`;
+        const city = `${employee.location.city}`;
+        let userInfo =  `
+          <p class="name"> ${name} </p>
+          <p class="email"> ${email} </p>
+          <p class="city"> ${city} <p>`;
+          userInfoDiv.innerHTML = userInfo;
+          $(infoContainer.appendChild(userInfoDiv));
+          });
+        }
 
-     function generateImage (data) {
-       const img = `<img src='${data}' alt="Employee 1"> </img>`;
-       card.innerHTML = img;
-     }
+        function generateImage(data){
+          employees.forEach((employee, index) => {
 
- // Fetch Name //
- fetch('https://randomuser.me/api/?exc=login,nat,id,registered&results=12')
-   .then(response => response.json()) // parse //
-   .then(data => generateName(data.results[0].name.title + '. ' + data.results[0].name.first + ' ' + data.results[0].name.last )) // name
-
-   function generateName (data) {
-     const name = `<p> ${data} </p>`;
-     card.innerHTML = name;
-   }
+            let imgContainer = document.createElement('div');
+                imgContainer.className = "imgContainer";
+                $(container.appendChild(imgContainer));
 
 
-
-
- // let employeeCard = [];
- //  employees.forEach(employee => {
- //    let employeeCard = employees.filter(employee => employee === email);
- //    console.log(employeeCard);
- //  });
+            const avatar = employee.picture.large;
+            let userImg = `
+                              <img src='${avatar}' alt="Employee 1"> </img>
+                            `;
+            imgContainer.innerHTML = userImg;
+            // $(infoContainer.appendChild(imgContainer));
+          });
+        }
 
 
 // // Card gets highlighted when user clicks on it //
