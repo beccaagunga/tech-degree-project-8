@@ -72,6 +72,8 @@ width: 40%;
   width: 30%;
   box-shadow: 0 5px 5px 0 rgba(0, 0, 0, 0.2), 0 7px 7px 0 rgba(0, 0, 0, 0.2);
   border-radius: 5px;
+  animation-name: modalOpen;
+  animation-duration: 1s;
 }
 
 .closeBtn {
@@ -90,6 +92,7 @@ width: 40%;
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
+  margin: 0;
 }
 
 .imgContainer img {
@@ -114,14 +117,13 @@ p {
 
 .name {
   font-weight: bold;
+  font-size: 1.4em;
 }
 
 .city {
   font-style: italic;
 }
 
-.email {
-}
 
 /* MODAL CARDS */
 .modalContent img {
@@ -132,10 +134,20 @@ p {
   border-radius: 100px;
 }
 
+@keyframes modalOpen {
+  from{opacity: 0}
+  to{opacity: 1}
+}
+
+
 
 @media (max-width: 762px) {
   .container {
     grid-template-columns: repeat(1, 1fr);
+  }
+
+  .body {
+    font-size: .8em;
   }
 
   h1 {
@@ -145,10 +157,6 @@ p {
 
   .modalContent {
     width: 68%;
-  }
-
-  .closeBtn {
-
   }
 
 
