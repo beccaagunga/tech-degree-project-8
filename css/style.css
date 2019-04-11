@@ -45,6 +45,19 @@ width: 40%;
   display: none;
 }
 
+.fa-angle-right {
+margin-left: 100%;
+display: inline-block;
+}
+
+.fa-angle-left {
+margin-right: 100%;
+position: absolute;
+
+}
+  margin: 1em;
+}
+
 /* SELECTED */
 .selected {
   background-color: black;
@@ -69,7 +82,7 @@ width: 40%;
   background-color: #BFB7B6;
   margin: 10% auto;
   padding: 30px;
-  width: 30%;
+  width: 40%;
   box-shadow: 0 5px 5px 0 rgba(0, 0, 0, 0.2), 0 7px 7px 0 rgba(0, 0, 0, 0.2);
   border-radius: 5px;
   animation-name: modalOpen;
@@ -77,13 +90,15 @@ width: 40%;
 }
 
 .closeBtn {
-  margin-left: 45%;
-  margin-right: 45%;
-  padding: 10px;
+  /* margin-left: 45%;
+  margin-right: 45%; */
+  padding: 14px;
   background-color: #435058;
   color: white;
   border-style: none;
   border-radius: 5px;
+  position: absolute;
+  left: 48%;
 }
 
 /* CARDS */
