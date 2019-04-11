@@ -144,7 +144,7 @@ $(document).on('click', '.fa-angle-left', function(index) {
   let i = 0;
   let employee = employees[index];
   employees.forEach(employee => {
-    card.innerHTML = generateModalInfo([i++]);
+    card.innerHTML = generateModalInfo([i--]);
   });
 
     // card.innerHTML = ($('.card').index(this));
