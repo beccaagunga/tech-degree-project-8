@@ -86,6 +86,8 @@ function generateModalInfo(index) {
                           <p class="address">${address} </p>
                           <p class="birthday">Birthday: ${birthday} </p>
                           <button class="closeBtn">Close</button>
+                          <i class="fas fa-angle-left"></i>
+                          <i class="fas fa-angle-right"></i>
                           </div>`;
 
    modal.innerHTML = userModalInfo;
@@ -122,3 +124,28 @@ searchBar.addEventListener('keyup', () =>{
         }
     });
 })
+
+// Click right arrow to see next employee //
+$(document).on('click', '.fa-angle-right', function(index) {
+  let card = document.querySelector('.modalContent');
+  let i = 0;
+  let employee = employees[index];
+  employees.forEach(employee => {
+    card.innerHTML = generateModalInfo([i++]);
+  });
+
+    // card.innerHTML = ($('.card').index(this));
+});
+
+
+// Click left arrow to see next employee //
+$(document).on('click', '.fa-angle-left', function(index) {
+  let card = document.querySelector('.modalContent');
+  let i = 0;
+  let employee = employees[index];
+  employees.forEach(employee => {
+    card.innerHTML = generateModalInfo([i++]);
+  });
+
+    // card.innerHTML = ($('.card').index(this));
+});
