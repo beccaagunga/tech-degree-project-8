@@ -3,12 +3,13 @@
 }
 
 body {
-  /* background-color: #56666B; */
+  background-color: rgb(191, 184, 183, 0.7);
+  font-family: 'Quicksand', sans-serif;
   margin: 0;
 }
 
 h1 {
-  font-family: 'Bitter', serif;
+  color: #435058;
   font-size: 1.3em;
   margin: 2em;
 }
@@ -24,7 +25,8 @@ h1 {
 }
 
 .card {
-  background-color: red;
+  background-color: #BFB7B6;
+  border-radius: 5px;
 }
 
 img {
@@ -32,13 +34,16 @@ img {
 }
 
 .search {
-  padding: 10px;
+padding: 10px;
 position: relative;
 text-align: center;
 left: 30%;
 width: 40%;
 }
 
+.card--hidden {
+  display: none;
+}
 
 /* SELECTED */
 .selected {
@@ -57,33 +62,76 @@ width: 40%;
   overflow: auto;
   background-color: rgba(0, 0, 0, 0.5);
   clear: both;
+
 }
 
 .modalContent {
-  background-color: blue;
+  background-color: #BFB7B6;
   margin: 10% auto;
   padding: 30px;
   width: 30%;
   box-shadow: 0 5px 5px 0 rgba(0, 0, 0, 0.2), 0 7px 7px 0 rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
 }
 
-.closeX{
-  color: yellow;
-  font-size: 1.7rem;
-  position: fixed;
-  right: 63%;
-  bottom: 78%;
-  padding: 5px;
-  margin: -3px;
+.closeBtn {
+  margin-left: 45%;
+  margin-right: 45%;
+  padding: 10px;
+  background-color: #435058;
+  color: white;
+  border-style: none;
+  border-radius: 5px;
 }
 
-.closeX:hover{
-  color: green;
+/* CARDS */
+.imgContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
 }
 
-.closeX:focus {
-  cursor: pointer;
+.imgContainer img {
+  border-radius: 100%;
+  max-width: 50%;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 10px;
+  margin: .5em;
 }
+
+p {
+  text-align: center;
+  color: #435058;
+}
+
+.name,
+.city,
+.address {
+  text-transform: capitalize;
+}
+
+.name {
+  font-weight: bold;
+}
+
+.city {
+  font-style: italic;
+}
+
+.email {
+}
+
+/* MODAL CARDS */
+.modalContent img {
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+  display: block;
+  border-radius: 100px;
+}
+
 
 @media (max-width: 762px) {
   .container {
@@ -93,6 +141,14 @@ width: 40%;
   h1 {
     font-size: 1em;
     text-align: center;
+  }
+
+  .modalContent {
+    width: 68%;
+  }
+
+  .closeBtn {
+
   }
 
 
