@@ -12,9 +12,8 @@ fetch('https://randomuser.me/api/?exc=login,nat,id,registered&results=12')
    .then(data => {employees = data.results;
                   console.log(employees)
                 })
-    // .then(data => generateImage(data))
     .then(data => generateInfo(data));
-    // .then(data => generateModalInfo(data));
+
 
 // Generate User Info (name, email, city) //
 function generateInfo(data) {
@@ -29,7 +28,6 @@ let infoContainer = document.createElement('div');
   card.appendChild(infoContainer);
 
 // Call this function to generate user image //
-
 generateImage(employee, infoContainer);
 // generateModalInfo(employee, modal);
 
