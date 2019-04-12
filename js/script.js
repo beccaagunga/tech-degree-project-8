@@ -10,27 +10,29 @@ let employees = [];
 fetch('https://randomuser.me/api/?exc=login,nat,id,registered&results=12')
    .then(response => response.json()) // parse //
    .then(data => {employees = data.results;
-                  console.log(employees)
+                  // console.log(employees)
                 })
     .then(data => generateInfo(data));
 
 
 // Generate User Info (name, email, city) //
 function generateInfo(data) {
-employees.forEach((employee, index) => {
+  employees.forEach((employee, index) => {
 
+//Create 12 divs with class of 'card' and 'employee' and assign index
 let card = document.createElement('div');
   card.classList.add("card", "employee" + index);
   container.appendChild(card);
 
+// Create 12 divs with class of infoContainer
 let infoContainer = document.createElement('div');
   infoContainer.className = "infoContainer";
   card.appendChild(infoContainer);
 
 // Call this function to generate user image //
 generateImage(employee, infoContainer);
-// generateModalInfo(employee, modal);
 
+// Create 12 userInfo divs and store info inside
 let userInfoDiv = document.createElement('div');
   userInfoDiv.className = "user_info";
   $(container.appendChild(userInfoDiv));
@@ -44,9 +46,6 @@ let userInfoDiv = document.createElement('div');
     userInfoDiv.innerHTML = userInfo;
     $(infoContainer.appendChild(userInfoDiv));
     });
-
-
-
   }
 
 // HELPER FUNCTIONS //
@@ -77,7 +76,7 @@ function generateModalInfo(index) {
     const birthday = `${employee.dob.date}`.slice(0,10);
 
     let userModalInfo = `
-                          <div class="modalContent">
+                          <div class="modalContent" data-index=${index}>
                           <img src='${avatar}' alt="Employee"> </img>
                           <p class="name">${name} </p>
                           <p class="email">${email} </p>
@@ -126,26 +125,16 @@ searchBar.addEventListener('keyup', () =>{
 })
 
 // Click right arrow to see next employee //
-$(document).on('click', '.fa-angle-right', function(index) {
+$(document).on('click', '.fa-angle-right', function() {
   let card = document.querySelector('.modalContent');
-  let i = 0;
-  let employee = employees[index];
-  employees.forEach(employee => {
-    card.innerHTML = generateModalInfo([i++]);
-  });
-
-    // card.innerHTML = ($('.card').index(this));
+  let index = card.getAttribute('data-index');
+  card.innerHTML = generateModalInfo(++index);
 });
 
 
-// Click left arrow to see next employee //
-$(document).on('click', '.fa-angle-left', function(index) {
+// Click left arrow to see previous employee //
+$(document).on('click', '.fa-angle-left', function() {
   let card = document.querySelector('.modalContent');
-  let i = 0;
-  let employee = employees[index];
-  employees.forEach(employee => {
-    card.innerHTML = generateModalInfo([i--]);
-  });
-
-    // card.innerHTML = ($('.card').index(this));
+  let index = card.getAttribute('data-index');
+  generateModalInfo(--index);
 });
