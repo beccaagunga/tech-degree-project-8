@@ -21,7 +21,6 @@ h1 {
   grid-template-columns: repeat(3, 1fr);
   grid-auto-rows: minmax(140px, auto);
   grid-gap: 1rem;
-
 }
 
 .card {
@@ -34,11 +33,11 @@ img {
 }
 
 .search {
-padding: 10px;
-position: relative;
-text-align: center;
-left: 30%;
-width: 40%;
+  padding: 10px;
+  position: relative;
+  text-align: center;
+  left: 30%;
+  width: 40%;
 }
 
 .card--hidden {
@@ -46,21 +45,13 @@ width: 40%;
 }
 
 .fa-angle-right {
-margin-left: 100%;
-display: inline-block;
+  margin-left: 100%;
+  display: inline-block;
 }
 
 .fa-angle-left {
-margin-right: 100%;
-position: absolute;
-
-}
-  margin: 1em;
-}
-
-/* SELECTED */
-.selected {
-  background-color: black;
+  margin-right: 100%;
+  position: absolute;
 }
 
 /* MODAL */
@@ -75,7 +66,6 @@ position: absolute;
   overflow: auto;
   background-color: rgba(0, 0, 0, 0.5);
   clear: both;
-
 }
 
 .modalContent {
@@ -90,8 +80,6 @@ position: absolute;
 }
 
 .closeBtn {
-  /* margin-left: 45%;
-  margin-right: 45%; */
   padding: 14px;
   background-color: #435058;
   color: white;
@@ -153,8 +141,6 @@ p {
   from{opacity: 0}
   to{opacity: 1}
 }
-
-
 
 @media (max-width: 762px) {
   .container {
